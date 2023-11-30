@@ -7,15 +7,18 @@ class News(models.Model):
     title = models.CharField(max_length=300)
     url = models.CharField(max_length=1000)
     # Add the original source of the news crawled
-    source = models.CharField(max_length=1000)
+    source = models.CharField(max_length=1000, null=True, blank=True)
+    content = models.TextField(null=True, blank=True)
+    summary = models.TextField(null=True, blank=True)
     is_summary = models.BooleanField(default=False)
     is_send = models.BooleanField(default=False)
     is_valid = models.BooleanField(default=True)
 
-    crawled_at = models.DateTimeField(auto_now=False)
+    crawled_at = models.DateTimeField(auto_now=False, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=False)
-    sent_at = models.DateTimeField(auto_now=False)
+    updated_at = models.DateTimeField(auto_now=True)
+    published_at = models.DateTimeField(auto_now=False, null=True, blank=True)
+    sent_at = models.DateTimeField(auto_now=False, null=True, blank=True)
 
     def __str__(self):
         return self.title

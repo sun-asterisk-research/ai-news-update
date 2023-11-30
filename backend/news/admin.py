@@ -8,20 +8,33 @@ class NewsAdmin(admin.ModelAdmin):
     list_display = (
         "title",
         "url",
+        "source",
+        "short_content",
+        "short_summary",
+        "is_summary",
+        "is_send",
+        "is_valid",
+        "published_at",
         "crawled_at",
         "created_at",
         "updated_at",
         "sent_at",
-        "is_summary",
-        "is_send",
-        "is_valid",
     )
+
+    def short_content(self, obj):
+        return obj.content[:50]  # Adjust the number as needed
+
+    def short_summary(self, obj):
+        return obj.summary[:50]  # Adjust the number as needed
+
+    short_content.short_description = "Content"
+    short_summary.short_description = "Summary"
 
     # Create the list filter with is_summary, is_send, is_valid
     list_filter = ("is_summary", "is_send", "is_valid")
 
     # Create search field
-    search_fields = ["title"]
+    search_fields = ["title", "source"]
 
 
 # Create ModelAdmin for Thread and Message

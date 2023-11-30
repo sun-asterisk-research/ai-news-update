@@ -16,3 +16,8 @@ django-cors-headers==4.1.0
 openai==0.27.6
 djangorestframework==3.14.0
 drf-yasg==1.21.7
+newspaper3k==0.2.8
+slack_sdk==3.25.0
+openai==0.27.6
+newspaper3k==0.2.8
+beautifulsoup4==4.11.2
