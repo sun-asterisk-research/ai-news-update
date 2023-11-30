@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  django:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./backend/:/usr/src/app/
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
+    command: bash -c "python manage.py collectstatic --no-input && python manage.py migrate && gunicorn backend.wsgi --reload -b 0.0.0.0:8080"
+    networks:
+      - ai-news-network
+
+networks:
+  ai-news-network:
+    driver: bridge
