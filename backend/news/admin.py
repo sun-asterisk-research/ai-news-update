@@ -22,10 +22,14 @@ class NewsAdmin(admin.ModelAdmin):
     )
 
     def short_content(self, obj):
-        return obj.content[:50]  # Adjust the number as needed
+        if obj.content:
+            return obj.content[:50]
+        return ""
 
     def short_summary(self, obj):
-        return obj.summary[:50]  # Adjust the number as needed
+        if obj.summary:
+            return obj.summary[:50]
+        return ""
 
     short_content.short_description = "Content"
     short_summary.short_description = "Summary"

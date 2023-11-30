@@ -11,4 +11,30 @@
 docker-compose up --build
 ```
 
-Make sure to run the install_labels, collectstatic, and migrate commands after this step.
+Make sure to run the collectstatic, and migrate commands after this step.
+
+### Some useful command
+
+- Create a superuser
+
+```
+python manage.py createsuperuser
+```
+
+- Crawl the news from the future.io
+
+```
+python manage.py crawl
+```
+
+- Summary the latest news
+
+```
+python manage.py summary
+```
+
+- Send the latest news to the Slack channel
+
+```
+python manage.py slack_notice
+```

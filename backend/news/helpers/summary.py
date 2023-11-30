@@ -5,9 +5,7 @@ from datetime import datetime
 # Import const from settings.py
 from django.conf import settings
 
-SYSTEM_MESSAGE = """You are an expert in summary the content from a blog. When I give you an raw text from public blog, please summary it in around 5 sentences in VIETNAMESE. Output summaried text must be less than 100 words in total"""
-
-OPENAI_MODEL = "gpt-3.5-turbo"
+SYSTEM_MESSAGE = """You are an expert in summary the content from an English blog. When I give you an raw text from an English blog, please summary in Vietnamese and less than 100 words."""
 
 
 class Summarizer:
