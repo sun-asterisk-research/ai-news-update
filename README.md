@@ -13,6 +13,8 @@ docker-compose up --build
 
 Make sure to run the collectstatic, and migrate commands after this step.
 
+Update readme 
+
 ### Some useful command
 
 - Create a superuser
